@@ -1,6 +1,12 @@
+const body = document.getElementsByTagName('body')
 const canvas = document.getElementById('draw')
 const ctx = canvas.getContext('2d')
 const displaySize = document.querySelector('size-display')
+
+body.height = window.innerHeight;
+body.width = window.innerWidth;
+canvas.height = window.innerHeight - 6;
+canvas.width = window.innerWidth - 100 - 12;
 
 var markerColor = 'black';
 var markerSize = 10;
@@ -40,7 +46,7 @@ colorPickers.forEach(colorPicker => {
 const clearButton = document.getElementById('clear-all')
 
 clearButton.addEventListener('click', (eve) => {
-    ctx.clearRect(0, 0, 800, 600);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 })
 
 // const sizeDown = document.getElementById('size-down')
@@ -65,9 +71,9 @@ function render(HTML) {
 
 function renderSpanTag(data) {
     return `
-        <button style="margin:1px" onclick="changeData(-1)">-</button>
-        <span style="margin:13px">${data}</span>
-        <button style="margin:1px" onclick="changeData(1)">+</button>
+        <button style="margin:3px" onclick="changeData(-2)">-</button>
+        <span style="margin:12px">${data}</span>
+        <button style="margin:3px" onclick="changeData(2)">+</button>
     `
 }
 
@@ -75,7 +81,7 @@ function changeData(delta) {
     markerSize += parseInt(delta);
     markerSize = Math.min(markerSize, 50);
     markerSize = Math.max(markerSize, 2);
-    render(renderSpanTag(markerSize));
+    render(renderSpanTag(markerSize / 2));
 }
 
-render(renderSpanTag(markerSize));
+render(renderSpanTag(markerSize / 2));

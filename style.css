@@ -1,7 +1,7 @@
 body {
-    width: 900px;
-    height: 600px;
-    border: 2px solid black;
+    /*width: 900px;
+    height: 600px;*/
+    border: 2px solid red;
     display: flex;
 }
 
@@ -13,13 +13,21 @@ body {
     width: 100px;
     height: 65px;
     cursor: pointer;
-    border: 1px solid black;
+    margin: 2px;
+    border: 2px solid black;
+    border-radius: 10px;
     text-align: center;
     line-height: 73px;
     vertical-align: middle;
 }
 
+#clear-all {
+    width: auto;
+    border: 2px solid black;
+    margin: 2px;
+}
+
 #draw {
     cursor: pointer;
-    border-left: 1px solid black;
+    border-left: 2px solid black;
 }
