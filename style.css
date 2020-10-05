@@ -1,0 +1,25 @@
+body {
+    width: 900px;
+    height: 600px;
+    border: 2px solid black;
+    display: flex;
+}
+
+.control {
+    flex: 1;
+}
+
+.control .color-picker {
+    width: 100px;
+    height: 65px;
+    cursor: pointer;
+    border: 1px solid black;
+    text-align: center;
+    line-height: 73px;
+    vertical-align: middle;
+}
+
+#draw {
+    cursor: pointer;
+    border-left: 1px solid black;
+}
