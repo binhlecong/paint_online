@@ -17,7 +17,7 @@ canvas.addEventListener('mousedown', (eve) => {
     isMousedown = true;
     const { clientX, clientY } = eve
     const rect = canvas.getBoundingClientRect()
-    setPixel(clientX - rect.left, clientY - rect.top, markerColor, markerSize);
+    setPixel(clientX - rect.left - markerSize / 2, clientY - rect.top - markerSize / 2, markerColor, markerSize);
 })
 
 canvas.addEventListener('mouseup', (eve) => {
@@ -27,7 +27,7 @@ canvas.addEventListener('mouseup', (eve) => {
 canvas.addEventListener('mousemove', (eve) => {
     const { clientX, clientY } = eve
     const rect = canvas.getBoundingClientRect()
-    if(isMousedown) setPixel(clientX - rect.left, clientY - rect.top, markerColor, markerSize);
+    if(isMousedown) setPixel(clientX - rect.left - markerSize / 2, clientY - rect.top - markerSize / 2, markerColor, markerSize);
 })
 
 const colorPickers = [...document.querySelectorAll('.color-picker')]
@@ -65,9 +65,9 @@ function render(HTML) {
 
 function renderSpanTag(data) {
     return `
-        <button onclick="changeData(-1)">-</button>
-        <span>${data}</span>
-        <button onclick="changeData(1)">+</button>
+        <button style="margin:1px" onclick="changeData(-1)">-</button>
+        <span style="margin:13px">${data}</span>
+        <button style="margin:1px" onclick="changeData(1)">+</button>
     `
 }
 
